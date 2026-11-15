@@ -185,6 +185,7 @@ export const BRAND = {
   navigation: [
     { label: 'Home', href: '/' },
     { label: 'Produk', href: '/produk' },
+    { label: 'Artikel', href: '/artikel' },
     { label: 'Layanan', href: '/services' },
     { label: 'Portofolio', href: '/portofolio' },
     { label: 'Alur Kerja', href: '/approach' },

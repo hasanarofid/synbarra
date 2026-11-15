@@ -89,7 +89,9 @@ class ProductController extends Controller
             'type' => 'website',
         ];
 
-        return Inertia::render('Products/Show', [
+        $view = $slug === 'invoicerapi' ? 'Products/InvoiceRapi' : 'Products/Show';
+
+        return Inertia::render($view, [
             'product' => $product,
             'relatedProducts' => $relatedProducts,
             'meta' => $meta,

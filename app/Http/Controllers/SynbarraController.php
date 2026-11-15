@@ -188,6 +188,8 @@ class SynbarraController extends Controller
         $staticPages = [
             ['loc' => $baseUrl . '/', 'priority' => '1.0', 'changefreq' => 'weekly'],
             ['loc' => $baseUrl . '/produk', 'priority' => '0.9', 'changefreq' => 'weekly'],
+            ['loc' => $baseUrl . '/produk/invoicerapi', 'priority' => '0.9', 'changefreq' => 'weekly'],
+            ['loc' => $baseUrl . '/artikel', 'priority' => '0.9', 'changefreq' => 'daily'],
             ['loc' => $baseUrl . '/services', 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['loc' => $baseUrl . '/portofolio', 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['loc' => $baseUrl . '/approach', 'priority' => '0.8', 'changefreq' => 'monthly'],
@@ -206,6 +208,17 @@ class SynbarraController extends Controller
             $xml .= "    <lastmod>{$today}</lastmod>\n";
             $xml .= "    <changefreq>{$page['changefreq']}</changefreq>\n";
             $xml .= "    <priority>{$page['priority']}</priority>\n";
+            $xml .= "  </url>\n";
+        }
+
+        $posts = Post::published()->latest()->get(['slug', 'updated_at']);
+        foreach ($posts as $post) {
+            $lastmod = $post->updated_at?->format('Y-m-d') ?? $today;
+            $xml .= "  <url>\n";
+            $xml .= "    <loc>{$baseUrl}/artikel/{$post->slug}</loc>\n";
+            $xml .= "    <lastmod>{$lastmod}</lastmod>\n";
+            $xml .= "    <changefreq>monthly</changefreq>\n";
+            $xml .= "    <priority>0.7</priority>\n";
             $xml .= "  </url>\n";
         }
 
