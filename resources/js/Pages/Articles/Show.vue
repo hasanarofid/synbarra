@@ -115,7 +115,7 @@ const formatDate = (dateStr?: string) => {
 
           <!-- Article Body -->
           <div
-            class="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-violet-700 hover:prose-a:text-violet-800 prose-strong:text-slate-900 leading-relaxed"
+            class="article-content max-w-none"
             v-html="article.content"
           ></div>
 
@@ -203,3 +203,96 @@ const formatDate = (dateStr?: string) => {
     </article>
   </AppLayout>
 </template>
+
+<style scoped>
+.article-content :deep(h2) {
+  font-size: 1.5rem;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 2.25rem;
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.015em;
+}
+
+.article-content :deep(h3) {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 1.75rem;
+  margin-bottom: 0.7rem;
+}
+
+.article-content :deep(p) {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #334155;
+  margin-bottom: 1.35rem;
+}
+
+.article-content :deep(ul) {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.4rem;
+  color: #334155;
+}
+
+.article-content :deep(ol) {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.4rem;
+  color: #334155;
+}
+
+.article-content :deep(li) {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin-bottom: 0.55rem;
+  padding-left: 0.25rem;
+}
+
+.article-content :deep(li::marker) {
+  color: #04d2c5;
+  font-weight: 700;
+}
+
+.article-content :deep(strong) {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.article-content :deep(a) {
+  color: #6d28d9;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-content :deep(a:hover) {
+  color: #5b21b6;
+}
+
+.article-content :deep(blockquote) {
+  margin: 1.75rem 0;
+  padding: 1.15rem 1.35rem;
+  background-color: #f8fafc;
+  border-left: 4px solid #04d2c5;
+  border-radius: 0 0.75rem 0.75rem 0;
+  color: #1e293b;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.article-content :deep(blockquote p:last-child) {
+  margin-bottom: 0;
+}
+
+.article-content :deep(code) {
+  font-size: 0.9em;
+  background-color: #f1f5f9;
+  color: #01232b;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.375rem;
+}
+</style>

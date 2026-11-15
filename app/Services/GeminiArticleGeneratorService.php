@@ -185,7 +185,7 @@ Tugas Anda menulis 1 artikel blog berkualitas tinggi, edukatif, relevan untuk pe
 
 ATURAN PENULISAN & ALGORITMA PROMOSI HALUS (SOFT-SELL):
 1. Tulis dalam Bahasa Indonesia yang profesional, hangat, mudah dipahami pemilik usaha, freelancer, WO, EO, fotografer, kontraktor, dan pelaku UMKM.
-2. Struktur artikel (800 - 1100 kata) dalam format HTML bersih (hanya tag <h2>, <h3>, <p>, <ul>, <li>, <strong>, <blockquote>, <a> — TANPA tag <html>, <head>, <body>, atau markdown ```).
+2. Struktur artikel (800 - 1100 kata) dalam format HTML bersih (hanya tag <h2>, <h3>, <p>, <ul>, <li>, <strong>, <blockquote>, <a> — TANPA tag <html>, <head>, <body>, atau markdown ```). Pastikan setiap paragraf <p> singkat dan nyaman dibaca di layar (maksimal 2-4 kalimat per paragraf), gunakan subjudul <h2>/<h3> dan poin <ul><li> agar tidak menumpuk.
 3. Berikan nilai edukasi nyata terlebih dahulu (tips praktis, studi kasus realistis di Indonesia, langkah-langkah yang bisa langsung diterapkan).
 4. SISIPKAN PROMOSI PRODUK SECARA ALAMI (Bridge Solusi): Di bagian solusi/implementasi praktis, perkenalkan **Synbarra InvoiceRapi** (https://invoicerapi.synbarra.com/) sebagai solusi SaaS yang membantu mengelola klien, proyek, invoice otomatis, jadwal termin pembayaran (DP, Termin 1, Pelunasan), pemantauan piutang, dan tautan invoice publik (/i/{token}) tanpa klien perlu login. Sertakan minimal 1 tautan `<a href="https://invoicerapi.synbarra.com/" target="_blank" rel="noopener noreferrer">Synbarra InvoiceRapi</a>` secara natural di dalam paragraf.
 5. Jangan terdengar seperti iklan hard-selling yang memaksa; buat pembaca merasa terbantu lalu tertarik mencoba paket gratis atau trial Pro 14 hari.
