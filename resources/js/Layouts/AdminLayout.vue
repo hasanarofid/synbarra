@@ -15,7 +15,8 @@ import {
   ChevronLeft,
   ChevronRight,
   ListTodo,
-  Users
+  Users,
+  BarChart3
 } from '@lucide/vue';
 
 const page = usePage();
@@ -31,6 +32,7 @@ const navigation = [
   { name: 'Leads & Prospek', href: route('admin.leads.index'), icon: Users, current: route().current('admin.leads.*') },
   { name: 'Katalog Produk', href: route('admin.products.index'), icon: ShoppingBag, current: route().current('admin.products.*') },
   { name: 'Pesanan Masuk (OMS)', href: route('admin.orders.index'), icon: ShoppingCart, current: route().current('admin.orders.*') },
+  { name: 'GEO & SEO Trafik', href: route('admin.seo-geo.index'), icon: BarChart3, current: route().current('admin.seo-geo.*') },
   { name: 'Pengaturan Toko', href: route('admin.settings.index'), icon: SettingsIcon, current: route().current('admin.settings.*') },
 ];
 

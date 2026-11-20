@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\Admin\OrderManagerController;
 use App\Http\Controllers\Admin\ProductManagerController;
 use App\Http\Controllers\Admin\RoadmapController;
+use App\Http\Controllers\Admin\SeoGeoController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
@@ -35,6 +36,7 @@ Route::get('/portfolio', fn () => redirect()->route('portfolio', [], 301));
 Route::get('/contact', [SynbarraController::class, 'contact'])->name('contact');
 Route::post('/contact', [SynbarraController::class, 'submitContact'])->name('contact.submit');
 Route::get('/sitemap.xml', [SynbarraController::class, 'sitemap'])->name('sitemap');
+Route::get('/llms.txt', [SynbarraController::class, 'llmsTxt'])->name('llms');
 Route::get('/template-showcase', fn () => redirect()->route('products.index', [], 301))->name('template.showcase');
 
 /*
@@ -69,6 +71,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/orders', [OrderManagerController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}', [OrderManagerController::class, 'show'])->name('orders.show');
     Route::patch('/orders/{order}/status', [OrderManagerController::class, 'updateStatus'])->name('orders.update-status');
+
+    // GEO & SEO Traffic Analytics
+    Route::get('/seo-geo', [SeoGeoController::class, 'index'])->name('seo-geo.index');
+    Route::post('/seo-geo/config', [SeoGeoController::class, 'updateConfig'])->name('seo-geo.config');
 
     // Settings
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');

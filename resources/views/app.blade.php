@@ -10,8 +10,40 @@
         <meta name="google-adsense-account" content="ca-pub-7190047001129861">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7190047001129861" crossorigin="anonymous"></script>
 
+        @php
+            $gscVerification = \App\Models\Setting::getValue('gsc_verification', 'google587f0f47640fdb34');
+            $gaMeasurementId = \App\Models\Setting::getValue('ga_measurement_id', '');
+            $metaPixelId = \App\Models\Setting::getValue('meta_pixel_id', '');
+        @endphp
+
         <!-- Google Search Console Verification -->
-        <meta name="google-site-verification" content="google587f0f47640fdb34">
+        @if(!empty($gscVerification))
+        <meta name="google-site-verification" content="{{ $gscVerification }}">
+        @endif
+
+        @if(!empty($gaMeasurementId) && !request()->is('admin*', 'dashboard*', 'profile*'))
+        <!-- Google Analytics 4 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaMeasurementId }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ $gaMeasurementId }}');
+        </script>
+        @endif
+
+        @if(!empty($metaPixelId) && !request()->is('admin*', 'dashboard*', 'profile*'))
+        <!-- Meta Pixel -->
+        <script>
+            !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '{{ $metaPixelId }}');
+            fbq('track', 'PageView');
+        </script>
+        @endif
 
         @php
             $defaultSiteName = 'Synbarra Technologies';
@@ -146,6 +178,9 @@
                 <h2>Navigasi Synbarra Technologies</h2>
                 <ul>
                     <li><a href="/">Beranda</a></li>
+                    <li><a href="/produk">Produk Software &amp; SaaS</a></li>
+                    <li><a href="/produk/invoicerapi">Synbarra InvoiceRapi</a></li>
+                    <li><a href="/artikel">Artikel &amp; Wawasan Bisnis</a></li>
                     <li><a href="/portofolio">Portofolio Solusi Digital</a></li>
                     <li><a href="/services">Layanan Pengembangan Sistem</a></li>
                     <li><a href="/approach">Metodologi &amp; Alur Kerja</a></li>

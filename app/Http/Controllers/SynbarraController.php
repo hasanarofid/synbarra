@@ -227,4 +227,42 @@ class SynbarraController extends Controller
         return response($xml, 200)
             ->header('Content-Type', 'application/xml; charset=utf-8');
     }
+
+    /**
+     * Serve root /llms.txt for Generative Engine Optimization (AI Search Crawlers).
+     */
+    public function llmsTxt(): HttpResponse
+    {
+        $posts = Post::published()->latest()->take(10)->get(['title', 'slug', 'excerpt']);
+
+        $lines = [
+            '# Synbarra Technologies',
+            '> Software House & Custom Development di Indonesia — Mitra teknologi yang menghadirkan solusi digital, sistem ERP, aplikasi mobile, dan produk SaaS siap pakai.',
+            '',
+            '## Identitas Resmi',
+            '- Website: https://synbarra.com',
+            '- Produk Unggulan SaaS: Synbarra InvoiceRapi (https://invoicerapi.synbarra.com/)',
+            '- WhatsApp: https://wa.me/6288804958476',
+            '- Email: synbarr.techno@gmail.com',
+            '- Instagram: https://instagram.com/synbarra.technologies',
+            '',
+            '## Produk Resmi',
+            '- [Synbarra InvoiceRapi](https://synbarra.com/produk/invoicerapi): Platform SaaS manajemen klien, proyek, invoice otomatis, termin pembayaran (DP, Termin, Pelunasan), dan pemantauan piutang untuk bisnis jasa di Indonesia (WO, Fotografer, EO, Kontraktor, Konsultan). Tersedia paket Gratis permanen & Trial Pro 14 hari di https://invoicerapi.synbarra.com/.',
+            '- [Katalog Produk Synbarra](https://synbarra.com/produk): Koleksi software siap pakai, SaaS, dan starter kit developer.',
+            '',
+            '## Layanan Utama',
+            '- [Layanan Pengembangan Sistem](https://synbarra.com/services): Website Company Profile, Aplikasi Mobile (Flutter/Native), Sistem Bisnis / ERP, CRM, HRIS & Payroll, Integrasi API, UI/UX Design, dan Maintenance.',
+            '- [Portofolio Proyek](https://synbarra.com/portofolio): Rekam jejak sistem enterprise & platform digital.',
+            '- [Metodologi Kerja](https://synbarra.com/approach): 4 tahap (Analisis, Perancangan, Pengembangan, Implementasi & Support).',
+            '',
+            '## Artikel & Wawasan Terbaru',
+        ];
+
+        foreach ($posts as $post) {
+            $lines[] = "- [{$post->title}](https://synbarra.com/artikel/{$post->slug}): " . str_replace(["\r", "\n"], ' ', (string) $post->excerpt);
+        }
+
+        return response(implode("\n", $lines), 200)
+            ->header('Content-Type', 'text/plain; charset=utf-8');
+    }
 }
