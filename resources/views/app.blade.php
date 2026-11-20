@@ -22,7 +22,15 @@
         @endif
 
         @if(!empty($gaMeasurementId) && !request()->is('admin*', 'dashboard*', 'profile*'))
-        <!-- Google Analytics 4 -->
+        <!-- Google Tag / Google Analytics 4 -->
+        @if(str_starts_with($gaMeasurementId, 'GTM-'))
+        <script async src="https://www.googletagmanager.com/gtm.js?id={{ $gaMeasurementId }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+        </script>
+        @else
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaMeasurementId }}"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -30,6 +38,7 @@
             gtag('js', new Date());
             gtag('config', '{{ $gaMeasurementId }}');
         </script>
+        @endif
         @endif
 
         @if(!empty($metaPixelId) && !request()->is('admin*', 'dashboard*', 'profile*'))

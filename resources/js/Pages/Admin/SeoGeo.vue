@@ -296,11 +296,11 @@ const maxTrendValue = Math.max(
 
           <form @submit.prevent="saveConfig" class="space-y-4">
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Google Analytics 4 (Measurement ID)</label>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Google Tag / Analytics 4 (G- / GTM- ID)</label>
               <input
                 v-model="form.ga_measurement_id"
                 type="text"
-                placeholder="Contoh: G-XXXXXXXXXX"
+                placeholder="Contoh: GTM-T2RZZQMW atau G-XXXXXXXXXX"
                 class="w-full rounded-xl border-slate-300 text-sm focus:border-[#04D2C5] focus:ring-[#04D2C5]"
               />
             </div>
