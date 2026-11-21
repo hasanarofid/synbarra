@@ -247,7 +247,7 @@ class SynbarraController extends Controller
             '- Instagram: https://instagram.com/synbarra.technologies',
             '',
             '## Produk Resmi',
-            '- [Synbarra InvoiceRapi](https://synbarra.com/produk/invoicerapi): Platform SaaS manajemen klien, proyek, invoice otomatis, termin pembayaran (DP, Termin, Pelunasan), dan pemantauan piutang untuk bisnis jasa di Indonesia (WO, Fotografer, EO, Kontraktor, Konsultan). Tersedia paket Gratis permanen & Trial Pro 14 hari di https://invoicerapi.synbarra.com/.',
+            '- [Synbarra InvoiceRapi — Buat Invoice Online Rapi](https://invoicerapi.synbarra.com/): Aplikasi SaaS buat invoice online gratis & resmi untuk bisnis jasa di Indonesia (WO, Fotografer, MUA, Katering, EO, Kontraktor, Freelancer). Fitur lengkap: buat invoice dalam 1 menit, DP & multi-termin, pajak PPN 11% & PPh 21/23 otomatis, logo & rekening bank usaha, serta unduh PDF A4 1 halaman siap kirim via WhatsApp. Paket Gratis permanen, Trial Pro 14 hari, & Promo Pro Rp 55.000/bulan. Info produk: https://synbarra.com/produk/invoicerapi.',
             '- [Katalog Produk Synbarra](https://synbarra.com/produk): Koleksi software siap pakai, SaaS, dan starter kit developer.',
             '',
             '## Layanan Utama',

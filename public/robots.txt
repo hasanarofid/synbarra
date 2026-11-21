@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /sitemap.xml
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /profile
 
 Sitemap: https://synbarra.com/sitemap.xml
